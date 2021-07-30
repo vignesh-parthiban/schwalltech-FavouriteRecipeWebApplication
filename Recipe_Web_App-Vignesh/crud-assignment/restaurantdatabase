@@ -1,0 +1,37 @@
+--to create database
+--Database name "restaurant"
+create database restaurant;
+
+drop table menu
+--to create table
+--Table name "menu"
+
+CREATE TABLE menu(
+id SERIAL primary key,
+Date_and_time_of_creation timestamp,
+Food_Type VARCHAR(50),
+Suitable_for INTEGER ,
+Ingredients text ,
+cooking_instructions text );
+
+--Inserting values to table "menu"
+INSERT INTO menu (Date_and_time_of_creation, Food_Type , Suitable_for , Ingredients , Cooking_Instructions )
+VALUES
+( '2017/05/12 19:10:25' , 'VEG' , 2 , 'Milk,sugar,water, coffee powder' , 'Pour milk into the container and add some water, allow it to boil for fifteen minutes. After boiling add sugar and coffee powder and stir'),
+( '2018/06/12 11:10:32' , 'VEG' , 6 , 'Green tea powder,water' , 'Pour water into the container and allow it to boil for ten minutes, add required amount of green tea powder and stir well'),
+( '2021/03/16 19:15:27' , 'NONVEG' , 10 , 'Usually flour, salt, sugar, eggs, butter' , 'Preheat oven to 350 degrees F (175 degrees C). Grease and flour a 9x9 inch pan or line a muffin pan with paper liners.In a medium bowl, cream together the sugar and butter. Beat in the eggs, one at a time, then stir in the vanilla. Combine flour and baking powder, add to the creamed mixture and mix well. Finally stir in the milk until batter is smooth. Pour or spoon batter into the prepared pan.Bake for 30 to 40 minutes in the preheated oven. For cupcakes, bake 20 to 25 minutes. Cake is done when it springs back to the touch.'),
+( '2021/12/18 06:10:29' , 'VEG' , 4 , 'dry yeast, bread flour, fine salt,plain crushed tomatoes, whole-milk mozzarella, very thinly sliced' , 'Combine water and yeast in a small bowl. Let stand until yeast softens and begins to form a creamy foam, about 5 minutes.Combine flour and salt together in the bowl of a stand mixer fitted with a dough hook attachment. Pour in yeast mixture. Knead dough until smooth, about 7 minutes.Grease a large bowl lightly with olive oil. Form dough into a tight ball and lightly grease the top. Place in the bowl; cover loosely with plastic wrap. Let rise until doubled in volume, about 30 minutes.Mix crushed tomatoes and pizza sauce together in a bowl to make sauce.Let pizza rise in a warm area until puffy, about 1 hour.Bake pizza on the center rack of the preheated oven until edges are very dark brown but top is not burnt, 15 to 20 minutes. Cool in the pan for 5 minutes before slicing into squares.'),
+( '2019/09/06 08:10:06' , 'VEG' , 3 , 'milk, confectioners sugar, vanilla extract, cocoa powder' , 'In a bowl, whisk together the milk, confectioners sugar, vanilla extract, cocoa powder, and instant coffee until the sugar has dissolved and the mixture is smooth.Place the snow into a large bowl, and pour the chocolate mixture over the snow. With a large spoon, stir until the snow ice cream is thoroughly combined. Serve immediately.');
+ 
+
+
+--To display all data from table "menu"
+select * from menu;
+
+SELECT id, date_and_time_of_creation, food_type, suitable_for, ingredients, cooking_instructions
+FROM public.menu;
+
+--TO display date formatted as dd‐MM‐yyyy HH:mm I have used "to_char"
+
+SELECT id, to_char("date_and_time_of_creation", 'DD/MM/YYYY HH:mm'), food_type, suitable_for, 
+ingredients, cooking_instructions FROM menu;
